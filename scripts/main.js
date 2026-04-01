@@ -35,20 +35,32 @@ function addBookToLibrary(name, author, numberOfPages) {
 
 function displayBooks() {
   for (const book of library) {
+
     const bookDOM = document.createElement("li");
     bookDOM.dataset.id = book.id;
     bookDOM.classList.add("book");
+
+    const bookContainer = document.createElement("div");
 
     const bookDetailsParagraph = document.createElement("p");
     bookDetailsParagraph.classList.add("book-details");
     bookDetailsParagraph.textContent = book.details();
 
-    bookDOM.appendChild(bookDetailsParagraph);
+    bookContainer.appendChild(bookDetailsParagraph);
+
+    const checkmarkContainer = document.createElement("div");
+    checkmarkContainer.classList.add(book.read ? "read" : "unread");
+    const checkmark = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>`
+    checkmarkContainer.innerHTML = checkmark;
+
+    bookContainer.appendChild(checkmarkContainer);
+
+    bookDOM.appendChild(bookContainer);
 
     const divButtons = document.createElement("div");
 
     const toggleReadButton = document.createElement("button");
-    toggleReadButton.textContent = "Read";
+    toggleReadButton.textContent = !book.read ? "Read" : "Unread";
     toggleReadButton.classList.add("btn-read");
 
     divButtons.appendChild(toggleReadButton);
@@ -73,10 +85,11 @@ function refreshBooksList() {
 function toggleBookRead(id) {
   for (const book of library) {
     if (book.id === id) {
-      book.toogleRead();
-      return;
+      book.toggleRead();
+      break;
     }
   }
+  refreshBooksList();
 }
 
 function removeBookFromLibrary(id) {
@@ -100,7 +113,10 @@ addBookButtonDOM.addEventListener("click", () => {
 
 booksListDOM.addEventListener("click", (event) => {
   const target = event.target;
-  const bookID = target.parentNode.dataset.id;
+  // Parent node have to be introduced twice to get to the li.
+  // The first time it goes to the div above.
+  const bookID = target.parentNode.parentNode.dataset.id;
+  console.log(bookID)
 
   if (target.classList.contains("btn-remove")) {
     removeBookFromLibrary(bookID);
@@ -113,4 +129,3 @@ addBookToLibrary("Harry potter", "JK Rolling", 290);
 addBookToLibrary("Court of Thorns and Roses", "Shara J. Maas", 500);
 addBookToLibrary("The Housemaid", "Freida McFadden", 342);
 
-displayBooks();

@@ -83,6 +83,19 @@ ul > li {
     justify-content: space-between;
 }
 
+.unread {
+    display: none;
+}
+
+.read {
+    display: block;
+}
+
+svg {
+    width: 25px;
+    height: auto;
+}
+
 ul > li > div {
     display:grid;
     gap: 10px;
