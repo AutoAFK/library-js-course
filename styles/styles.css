@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.3;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.center {
+    width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.btn-add {
+    padding: 10px 20px;
+    background-color: hsl(213, 83%, 68%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    box-shadow: hsl(213, 83%, 48%) 0 2px 3px;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background-color: hsl(213, 63%, 68%);
+    box-shadow: hsl(213, 63%, 48%);
+}
+
+dialog:open{
+    /* Important! this center the dialog on the screen */
+    margin: auto;
+    padding: 20px;
+
+    display: grid;
+    grid-auto-flow: row;
+    gap:10px;
+}
+
+dialog > form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px;
+}
+
+.form-buttons {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: 10px;
+}
+
+.form-buttons > button {
+    padding: 5px 20px;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+ul > li {
+    border-bottom: 2px solid black;
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: space-between;
+}

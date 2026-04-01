@@ -1,15 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
     <script src="./scripts/main.js" defer></script>
-</head>
-<body>
-    <h1>Library</h1>
-    <ul id="books-list">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Library</h1>
+      <button class="btn-add" command="show-modal" commandfor="add-book-dialog">
+        Add Book
+      </button>
+      <dialog id="add-book-dialog">
+        <form method="dialog">
+          <label for="book-name">Book Name:</label>
+          <input type="text" name="book-name" id="book-name" />
+          <label for="book-author">Book Author:</label>
+          <input type="text" name="book-author" id="book-author" />
+          <label for="book-pages-amount">Pages Amount:</label>
+          <input
+            type="number"
+            name="book-pages-amount"
+            id="book-pages-amount"
+            min="1"
+            max="1000"
+          />
+          <div class="form-buttons">
+            <button id="add-button" type="submit">Add</button>
+            <button value="cancel">Close</button>
+        </div>
+        </form>
         
-    </ul>
-</body>
+      </dialog>
+      <ul id="books-list"></ul>
+    </div>
+  </body>
 </html>
