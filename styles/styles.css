@@ -8,12 +8,21 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 body {
     width: 100vw;
     height: 100vh;
+}
+
+button {
+    font-weight: 700;
+    font-size: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: hsl(0, 0%, 25%) 2px 2px 3px;
 }
 
 .center {
@@ -44,7 +53,7 @@ h1 {
 dialog:open{
     /* Important! this center the dialog on the screen */
     margin: auto;
-    padding: 20px;
+    padding: 2rem;
 
     display: grid;
     grid-auto-flow: row;
@@ -52,6 +61,8 @@ dialog:open{
 }
 
 dialog > form {
+    font-weight: 700;
+
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 10px;
@@ -63,6 +74,16 @@ dialog > form {
     grid-auto-flow: column;
     justify-content: end;
     gap: 10px;
+}
+
+.form-buttons > button:first-child {
+    background-color: hsl(80, 50%, 50%);
+    color: #fff;
+}
+
+.form-buttons > button:last-child {
+    background-color: hsl(0, 80%, 60%);
+    color: #fff;
 }
 
 .form-buttons > button {
@@ -88,11 +109,12 @@ ul > li {
 }
 
 .read {
-    display: block;
+    display: grid;
+    place-items: center;
 }
 
 svg {
-    width: 25px;
+    width: 1rem;
     height: auto;
 }
 
@@ -100,12 +122,19 @@ ul > li > div {
     display:grid;
     gap: 10px;
     grid-auto-flow: column;
+    align-items: center;
 }
 
 ul > li > div > button {
     padding: 5px 10px;
 }
 
-ul > li > div > button:first {
-    
+.btn-read {
+    background-color: hsl(220, 80%, 60%);
+    color: #fff;
+}
+
+.btn-remove {
+    background-color: hsl(0, 80%, 60%);
+    color: #fff;
 }

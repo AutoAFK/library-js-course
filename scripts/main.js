@@ -108,6 +108,10 @@ addBookButtonDOM.addEventListener("click", () => {
   const bookAuthor = dialogBookAuthor.value;
   const bookPagesAmount = dialogBookPagesAmount.value;
 
+  if(!bookName || !bookAuthor || !bookPagesAmount){
+    return;
+  }
+
   addBookToLibrary(bookName, bookAuthor, bookPagesAmount);
 });
 
